@@ -9,14 +9,14 @@ package D9;
  */
 
 public class I2 {
-    public D9P.Node dfs(D9P.Node node){
-        D9P.Node cur = node;
-        D9P.Node last = null;
+    public Node dfs(Node node){
+        Node cur = node;
+        Node last = null;
         while(cur != null){
 //            Queue<Node> queue = new ArrayDeque<>();
-            D9P.Node next = cur.next;
+            Node next = cur.next;
             if(cur.child != null){
-                D9P.Node childLast = dfs(cur.child);
+                Node childLast = dfs(cur.child);
                 next = cur.next;
                 // 把next和child相连接
                 cur.next = cur.child;
@@ -35,14 +35,14 @@ public class I2 {
         }
         return last;
     }
-    public D9P.Node flatten(D9P.Node head) {
+    public Node flatten(Node head) {
         dfs(head);
         return head;
     }
 }
 class Node {
     public int val;
-    public D9P.Node prev;
-    public D9P.Node next;
-    public D9P.Node child;
+    public Node prev;
+    public Node next;
+    public Node child;
 }
